@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/feature/home/model/models/education_model.dart';
 import '../../../../core/helper/responsive_helper.dart';
 import '../../../../core/utils/portfolio_utils.dart';
 
@@ -113,7 +112,7 @@ class EducationSection extends StatelessWidget {
                     ],
                   ),
                 ))
-            .toList(),
+            ,
       ],
     );
   }

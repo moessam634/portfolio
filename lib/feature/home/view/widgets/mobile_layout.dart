@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/core/widgets/custom_contact_icon.dart';
 import '../../../../core/styles/app_images.dart';
 import '../../../../core/theme/contact_icon_theme_extension.dart';
-import '../../../../core/utils/url_utils.dart';
+import '../../../../core/utils/url_utils/url_utils.dart';
 
 class MobileLayout extends StatelessWidget {
   const MobileLayout({super.key});

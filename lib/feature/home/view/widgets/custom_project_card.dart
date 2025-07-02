@@ -1,34 +1,39 @@
 import 'package:flutter/material.dart';
 
-class CustomProjectCard extends StatefulWidget {
+class CustomProjectCard extends StatelessWidget {
   const CustomProjectCard({
     super.key,
     required this.title,
     required this.description,
     required this.image,
-    this.onTap,
+    required this.onTap,
+    required this.onTouchDown,
+    required this.onHoverEnter,
+    required this.onHoverExit,
+    this.isSelected = false,
   });
 
   final String title;
   final String description;
   final String image;
-  final VoidCallback? onTap;
-
-  @override
-  State<CustomProjectCard> createState() => _CustomProjectCardState();
-}
-
-class _CustomProjectCardState extends State<CustomProjectCard> {
-  bool _isHovering = false;
+  final VoidCallback onTap;
+  final VoidCallback onTouchDown;
+  final VoidCallback onHoverEnter;
+  final VoidCallback onHoverExit;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _isHovering = true),
-      onExit: (_) => setState(() => _isHovering = false),
+      onEnter: (_) => onHoverEnter(),
+      onExit: (_) => onHoverExit(),
       cursor: SystemMouseCursors.click,
-      child: InkWell(
-        onTap: widget.onTap,
+      child: GestureDetector(
+        onTap: onTap,
+        onTapDown: (details) {
+          onTouchDown(); // Show overlay immediately on touch
+        },
+        behavior: HitTestBehavior.opaque,
         child: Container(
           height: 400,
           decoration: BoxDecoration(
@@ -46,10 +51,7 @@ class _CustomProjectCardState extends State<CustomProjectCard> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.asset(
-                  widget.image,
-                  fit: BoxFit.cover,
-                ),
+                Image.asset(image, fit: BoxFit.cover),
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -64,24 +66,23 @@ class _CustomProjectCardState extends State<CustomProjectCard> {
                     ),
                   ),
                 ),
-                // "Check it out" overlay on hover
                 AnimatedOpacity(
-                  opacity: _isHovering ? 1.0 : 0.0,
+                  opacity: isSelected ? 1.0 : 0.0,
                   duration: Duration(milliseconds: 300),
                   child: Container(
                     color: Colors.black.withOpacity(0.4),
                     alignment: Alignment.center,
                     child: Text(
-                      "Check it out",
+                      "Check it out on GitHub",
+                      textAlign: TextAlign.center,
                       style:
-                          Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-                // Text content at bottom
                 Positioned(
                   bottom: 0,
                   left: 0,
@@ -100,20 +101,22 @@ class _CustomProjectCardState extends State<CustomProjectCard> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          widget.title,
-                          style:
-                              Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          title,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          widget.description,
+                          description,
                           style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: Colors.white70,
-                                  ),
+                          Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: Colors.white70,
+                          ),
                           maxLines: 4,
                           overflow: TextOverflow.ellipsis,
                         ),

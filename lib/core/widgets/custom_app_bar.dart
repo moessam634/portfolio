@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/core/styles/app_strings.dart';
-import 'package:portfolio/core/utils/url_utils.dart';
+import 'package:portfolio/core/utils/url_utils/url_utils.dart';
 import 'package:portfolio/feature/home/view/widgets/custom_nav_item.dart';
 import 'package:portfolio/feature/home/view/widgets/modal_bottom_sheet.dart';
 import '../helper/responsive_helper.dart';
+import '../styles/app_files.dart';
 import '../theme/theme_cubit/theme_cubit.dart';
 import '../theme/theme_cubit/theme_state.dart';
 
@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 //resume button
                 ElevatedButton(
                   onPressed: () {
-                    UrlUtils.forceDownload(AppStrings.myCV,"Mohamed_Essam_CV.pdf");
+                    UrlUtils.openInNewTab(AppFiles.resume);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: isDarkMode ? Colors.white : Colors.black,

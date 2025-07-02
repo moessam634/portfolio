@@ -9,7 +9,6 @@ class SkillsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final skills = PortfolioViewModel().skills;
-
     final isMobile = ResponsiveHelper.isMobile(context);
 
     return Container(
@@ -26,6 +25,7 @@ class SkillsSection extends StatelessWidget {
           ),
           SizedBox(height: 32),
           Wrap(
+            alignment: WrapAlignment.center,
             spacing: 16,
             runSpacing: 16,
             children:
