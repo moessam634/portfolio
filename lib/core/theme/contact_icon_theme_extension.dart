@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-@immutable
+
 class ContactIconColors extends ThemeExtension<ContactIconColors> {
   const ContactIconColors({
     required this.linkedin,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/theme/theme_cubit/theme_cubit.dart';
 import 'package:portfolio/feature/home/view/screens/home_screen.dart';
-import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_cubit/theme_state.dart';
 

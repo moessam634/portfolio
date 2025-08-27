@@ -17,7 +17,7 @@ class PortfolioViewModel {
           "Angelina is a modern beauty e-commerce mobile application designed to offer a seamless shopping experience for skincare and cosmetic products. Built with Flutter, the app supports responsive design, intuitive navigation, and full Arabic localization.",
     ),
     ProjectsModel(
-        link: "https://github.com/moessam634/zbooma_app",
+        link: "https://play.google.com/store/apps/details?id=zbooma.aplicfdx",
         title: "ZBOOMA App",
         category: "Development",
         imageUrl: AppImages.zboomaImage,

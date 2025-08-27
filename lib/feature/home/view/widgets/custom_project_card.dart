@@ -31,7 +31,7 @@ class CustomProjectCard extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         onTapDown: (details) {
-          onTouchDown(); // Show overlay immediately on touch
+          onTouchDown();
         },
         behavior: HitTestBehavior.opaque,
         child: Container(
@@ -73,13 +73,13 @@ class CustomProjectCard extends StatelessWidget {
                     color: Colors.black.withOpacity(0.4),
                     alignment: Alignment.center,
                     child: Text(
-                      "Check it out on GitHub",
+                      "Check it out",
                       textAlign: TextAlign.center,
                       style:
-                      Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                   ),
                 ),
@@ -102,21 +102,19 @@ class CustomProjectCard extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         ),
                         const SizedBox(height: 6),
                         Text(
                           description,
                           style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: Colors.white70,
-                          ),
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: Colors.white70,
+                                  ),
                           maxLines: 4,
                           overflow: TextOverflow.ellipsis,
                         ),

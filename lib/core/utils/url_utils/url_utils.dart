@@ -32,18 +32,6 @@ class UrlUtils {
     await _launch(uri);
   }
 
-  // // static void platformForceDownload(String url, String filename) {
-  // //   html.AnchorElement(href: url)
-  // //     ..setAttribute('download', filename)
-  // //     ..click();
-  // // }
-  //
-  // static void platformForceDownload(String url, String filename) {
-  //   final anchor = web.HTMLAnchorElement()
-  //     ..href = url
-  //     ..setAttribute('download', filename);
-  //   anchor.click();
-  // }
   static void openInNewTab(String url) {
     web.window.open(url, '_blank');
   }
